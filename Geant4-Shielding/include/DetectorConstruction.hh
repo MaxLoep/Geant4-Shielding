@@ -86,18 +86,27 @@ class DetectorConstruction : public G4VUserDetectorConstruction
    G4double           d;
    G4double           e;
 
+   G4double           TargetDia;
+   G4double           TargetLen;
+
    G4Material*        fAbsorMaterial;
    G4LogicalVolume*   fLAbsor;
 
    G4Material*        world_mat;
    G4Material*        boxMaterial;
    G4Material*        dummyMat; 
+   G4Material*        TargetMat;
 
    G4Material*        Vacuum;
    G4Material*        Copper;
    G4Material*        Iron;
    G4Material*        Titanium;
    G4Material*        Aluminum;
+
+   G4Material*        Hydrogen;
+   G4Material*        Boron;
+   G4Material*        Carbon;
+   G4Material*        BoratedPE;
 
    DetectorMessenger* fDetectorMessenger;
 

@@ -5,7 +5,7 @@ cmake_minimum_required(VERSION 3.8...3.18)
 if(${CMAKE_VERSION} VERSION_LESS 3.12)
   cmake_policy(VERSION ${CMAKE_MAJOR_VERSION}.${CMAKE_MINOR_VERSION})
 endif()
-project(How-To-Geant4)
+project(Geant4-Shielding)
  
 
 #----------------------------------------------------------------------------
@@ -36,20 +36,20 @@ file(GLOB headers ${PROJECT_SOURCE_DIR}/include/*.hh)
 #----------------------------------------------------------------------------
 # Add the executable, and link it to the Geant4 libraries
 #
-add_executable(How-To-Geant4 How-To-Geant4.cc ${sources} ${headers})
-target_compile_features(How-To-Geant4 PRIVATE cxx_std_17)
+add_executable(Geant4-Shielding Geant4-Shielding.cc ${sources} ${headers})
+target_compile_features(Geant4-Shielding PRIVATE cxx_std_17)
 
 #if gcc is the compiler, you need to use this because of '#include <filesystem>'
 if (CMAKE_CXX_COMPILER_ID STREQUAL GNU)
-  target_link_libraries(How-To-Geant4 ${Geant4_LIBRARIES} stdc++fs)
+  target_link_libraries(Geant4-Shielding ${Geant4_LIBRARIES} stdc++fs)
 else()
-  target_link_libraries(How-To-Geant4 ${Geant4_LIBRARIES})
+  target_link_libraries(Geant4-Shielding ${Geant4_LIBRARIES})
 endif()
 
 #----------------------------------------------------------------------------
 # Copy all scripts to the build directory. This is so that we have a backup of those scripts.
 #->REALLY NECESSARY?
-# set(How-To-Geant4_SCRIPTS
+# set(Geant4-Shielding_SCRIPTS
 #     PlotRootFile.py
 #     vis.mac
 #     run.mac
@@ -62,7 +62,7 @@ endif()
 #     FaradayCupMobile.obj
 #   )
 
-# foreach(_script ${How-To-Geant4_SCRIPTS})
+# foreach(_script ${Geant4-Shielding_SCRIPTS})
 #   configure_file(
 #     ${PROJECT_SOURCE_DIR}/${_script}
 #     ${PROJECT_BINARY_DIR}/${_script}
@@ -73,10 +73,10 @@ endif()
 #----------------------------------------------------------------------------
 # Install the executable to 'bin' directory under CMAKE_INSTALL_PREFIX
 #
-install(TARGETS How-To-Geant4 DESTINATION bin)
+install(TARGETS Geant4-Shielding DESTINATION bin)
 
 #if using Visual Studio, copy the executable from the "release"-folder to the build directory 
 if (CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
-  set_target_properties(How-To-Geant4 PROPERTIES
+  set_target_properties(Geant4-Shielding PROPERTIES
     RUNTIME_OUTPUT_DIRECTORY_RELEASE ${PROJECT_BINARY_DIR})
 endif()
