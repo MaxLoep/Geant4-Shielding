@@ -11,6 +11,8 @@
 //#include "globals.hh"
 //#include <map>
 
+#include <sys/types.h>
+#include <unistd.h>
 
 const G4int kMaxHisto1 = 24;
 const G4int kMaxHisto2 = 44;

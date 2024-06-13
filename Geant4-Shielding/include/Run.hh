@@ -5,6 +5,8 @@
 #include "G4VProcess.hh"
 #include "globals.hh"
 #include <map>
+#include <sys/types.h>
+#include <unistd.h>
 
 class DetectorConstruction;
 class G4ParticleDefinition;

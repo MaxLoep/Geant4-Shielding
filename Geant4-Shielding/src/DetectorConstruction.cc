@@ -262,8 +262,8 @@ void DetectorConstruction::DefineMaterials()
   G4LogicalVolume* lBox =                         
     new G4LogicalVolume(sBox,                //its solid
                         // boxMaterial,           //its material
-                        // Vacuum,
-                        BoratedPE,
+                        world_mat,
+                        // BoratedPE,
                         "lBox");              //its name
   
   //G4VPhysicalVolume* physBox=              //you can declare a varibale for placement but it will create a warning if unused   
